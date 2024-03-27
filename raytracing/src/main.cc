@@ -1,3 +1,6 @@
+#include "color.h"
+#include "vec3.h"
+
 #include <iostream>
 
 int main() {
@@ -23,13 +26,8 @@ int main() {
             double g = double(j) / (image_height-1);
             double b = 0;
 
-            // Convert color components to integer values
-            int ir = static_cast<int>(255.999*r);
-            int ig = static_cast<int>(255.999*g);
-            int ib = static_cast<int>(255.999*b);
-
-            // Output color values to create the image content
-            std::cout << ir << ' ' << ig << ' ' << ib << '\n';
+            vec3 pixel_color = color(r, g, b);
+            write_color(std::cout, pixel_color);
         }
     }
 
