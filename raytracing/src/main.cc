@@ -13,7 +13,7 @@ int main() {
     for (int j = 0; j < image_height; j++) {
 
         // Log scanline progress
-        std::clog << "\rScanlines remaining: " << (image_height-j) << " " << std::flush;
+        std::clog << "\rScanlines remaining: " << (image_height-j) << "\n" << std::flush;
 
         // Loop through each pixel in the row
         for (int i = 0; i < image_width; i++) {
