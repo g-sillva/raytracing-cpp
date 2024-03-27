@@ -17,7 +17,6 @@ class vec3 {
             e[1] = 0;
             e[2] = 0;
         }
-        
         vec3(double e0, double e1, double e2) {
             e[0] = e0;
             e[1] = e1;
