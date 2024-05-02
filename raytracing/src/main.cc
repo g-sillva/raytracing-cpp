@@ -6,17 +6,17 @@
 
 // Check where ray intersects with a sphere
 double hit_sphere(const point3& center, double radius, const ray& r) {
-    vec3 oc = r.origin() - center; // Vector from array origin to sphere center
+    vec3 oc = center - r.origin(); // Vector from array origin to sphere center
 
-    double a = dot(r.direction(), r.direction());
-    double b = 2.0 * dot(oc, r.direction());
-    double c = dot(oc, oc) - radius * radius;
-    double discriminant = b * b - 4 * a * c;
+    double a = r.direction().length_squared();
+    double h = dot(r.direction(), oc);
+    double c = oc.length_squared() - radius*radius;
+    double discriminant = h*h - a*c;
 
     if (discriminant < 0) {
         return -1.0;
     } else {
-        return (-b - sqrt(discriminant)) / (2.0 * a);
+        return (h - sqrt(discriminant)) / a;
     }
 }
 
