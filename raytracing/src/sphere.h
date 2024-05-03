@@ -32,15 +32,15 @@ class sphere : public hittable {
             }
 
             rec.t = root;
-            rec.p = r.at(root);
-            rec.normal = (rec.p - center) / radius;
-            
+            rec.p = r.at(rec.t);
+            rec.set_face_normal(r, (rec.p - center) / radius);
+
             return true;
         }
 
     private:
-        point3 center;
-        double radius;
+        point3 center; // The center point of the sphere
+        double radius; // The radius of the sphere
 };
 
 #endif
