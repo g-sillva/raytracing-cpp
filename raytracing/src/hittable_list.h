@@ -16,13 +16,13 @@ class hittable_list : public hittable {
             objects.push_back(object);
         }
 
-        bool hit(const ray &r, double ray_tmin, double ray_tmax, hit_record &rec) const override {
+        bool hit(const ray &r, interval ray_t, hit_record &rec) const override {
             hit_record temp_rec;
             bool hit_anything = false;
-            double closest_hit_distance = ray_tmax;
+            double closest_hit_distance = ray_t.max;
 
             for (const std::shared_ptr<hittable>& object : objects) {
-                if (!object->hit(r, ray_tmin, ray_tmax, temp_rec)) continue;
+                if (!object->hit(r, interval(ray_t.min, ray_t.max), temp_rec)) continue;
                 hit_anything = true;
                 closest_hit_distance = temp_rec.t;
                 rec = temp_rec;
