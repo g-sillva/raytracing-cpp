@@ -1,8 +1,6 @@
 #ifndef HITTABLE_H
 #define HITTABLE_H
 
-#include "ray.h"
-
 class hit_record {
     public:
         point3 p;           // The point on the surface of the object where the ray intersects
