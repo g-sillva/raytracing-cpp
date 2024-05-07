@@ -10,8 +10,8 @@ int main() {
     // Materials
     std::shared_ptr material_lambertian_green = std::make_shared<lambertian>(color(0.8, 0.8, 0.0));
     std::shared_ptr material_lambertian_blue = std::make_shared<lambertian>(color(0.1, 0.2, 0.5));
-    std::shared_ptr material_metal_light_gray = std::make_shared<metal>(color(0.8, 0.8, 0.8));
-    std::shared_ptr material_metal_yellow = std::make_shared<metal>(color(0.8, 0.6, 0.2));
+    std::shared_ptr material_metal_light_gray = std::make_shared<metal>(color(0.8, 0.8, 0.8), 0.0);
+    std::shared_ptr material_metal_yellow = std::make_shared<metal>(color(0.8, 0.6, 0.2), 0.5);
 
     // World
     hittable_list world;
